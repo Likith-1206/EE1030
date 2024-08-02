@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{ENGLISH}
+\author{Sai Likith Reddy Bheri}
+\date{August 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\end{document}
