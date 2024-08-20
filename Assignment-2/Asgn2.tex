@@ -1,0 +1,54 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+
+%\usepackage[a5paper, top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+
+%
+\usepackage{gvv-book}
+\usepackage{gvv}
+\setlength{\intextsep}{10pt} % Space between text and floats
+
+\makeindex
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\onecolumn
+\newpage
+\title{Assignment-2}
+\author{AI24BTECH11004-Bheri Sai Likith Reddy}
+\maketitle
+ $\vec{P}\brak{5,-3}$ and $\vec{Q}\brak{3,y}$ are the points of trisection of the line segment joining $\vec{A}\brak{7,-2}$ and $\vec{B}\brak{1,-5}$. Theny equals\\
+\solution Given $\vec{P}\brak{5,-3}$, $\vec{A}\brak{7,-2}$, $\vec{B}\brak{1,-5}$ and $\vec{Q}\brak{3,y}$\\
+Also given that $\vec{P} and \vec{Q} $ are the points of tricection of $AB$.\\
+Let q divides the line segment $AB$ in the ratio $k:1$.
+That implies p divides line segment $AB$ in the ratio $1:k$.
+\begin{align}
+\implies p = \frac{ka+b}{k+1}\\
+\implies \myvec{5\\ -3}=\frac{k\myvec{7\\ -2}+\myvec{1\\ -5}}{k+1}\\
+\end{align}
+lets solve x coordinate
+\begin{align}
+\implies 5=\frac{7k+1}{k+1}\\
+\implies 5k+5=7k+1\\
+\implies k=2
+\end{align}
+Therefore q divides $AB$ in the ratio $2:1$\\
+\begin{align}
+\implies \myvec{3\\ y}=\frac{b+\frac{1}{2}a}{1+\frac{1}{2}+1 }\\
+\end{align}
+lets solve y coordinate of q
+\begin{align}
+\implies y=\frac{\brak{-5}+\brak{-2}\frac{1}{2}}{\frac{3}{2}}\\
+\implies y=\frac{-12}{3}
+\end{align}
+Therefore $y=-4$
+
+\end{document}
+
