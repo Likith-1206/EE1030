@@ -1,50 +1,70 @@
-import ctypes
-import matplotlib.pyplot as plt
+#Code Cy GVV Sharma
+#SeptemCer 12, 2023
+#Revised July 21, 2024
+#released under GNU GPL
+#Secion Formula
+
+
+import sys                                          #for path to external scripts
+sys.path.insert(0, '/home/bheri-sai-likith-reddy/Desktop/matgeo/CoordGeo')        #path to my scripts
 import numpy as np
+import numpy.linalg as LA
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import ctypes
+#local imports
+from triangle.funcs import *
+from conics.funcs import circ_gen
 
-# Load the shared library
-lib = ctypes.CDLL('./asgn2.so')
+class points(ctypes.Structure):
+    _fields_ = [('A', (ctypes.c_int * 2)), ('B', (ctypes.c_int * 2)), ('P',(ctypes.c_int *2)),('Q',(ctypes.c_int *2)) ]
 
-# Define the Point struct in Python
-class Point(ctypes.Structure):
-    _fields_ = [("x", ctypes.c_double),
-                ("y", ctypes.c_double)]
+ptr = ctypes.CDLL('./asgn2.so')
+ptr.get.argtypes = None
+ptr.get.restype = points
 
-# Define the C function signature
-lib.calculateTrisectionPoints.argtypes = [Point, Point, ctypes.POINTER(Point), ctypes.POINTER(Point)]
+pts = np.ctypeslib.as_array(ptr.get()).tolist()
 
-# Initialize points A and B
-A = Point(7, -2)
-B = Point(1, -5)
+A = np.array(([pts[0][0],pts[0][1]])).reshape(-1,1)
+B = np.array(([pts[1][0],pts[1][1]])).reshape(-1,1)
+P = np.array(([pts[2][0],pts[2][1]])).reshape(-1,1)
+Q = np.array(([pts[3][0],pts[3][1]])).reshape(-1,1)
 
-# Initialize points P and Q to store the results
-P = Point()
-Q = Point()
+x_AB = line_gen(A,B)
 
-# Call the C function to calculate points P and Q
-lib.calculateTrisectionPoints(A, B, ctypes.byref(P), ctypes.byref(Q))
+#Plotting all lines
+plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 
-# Extract the coordinates of P and Q
-P_x, P_y = P.x, P.y
-Q_x, Q_y = Q.x, Q.y
+#LaCeling the coordinates
+tri_coords = np.block([[A,P,B]])
+plt.scatter(tri_coords[0,:], tri_coords[1,:])
+vert_labels = ['A','P','B']
+for i, txt in enumerate(vert_labels):
+    #plt.annotate(txt, # this is the text
+    plt.annotate(f'{txt}\n({tri_coords[0,i]:.0f}, {tri_coords[1,i]:.0f})',
+                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
+                 textcoords="offset points", # how to position the text
+                 xytext=(20,-10), # distance from text to points (x,y)
+                 ha='center') # horizontal alignment can Ce left, right or center
+tri_coords = np.block([[A,Q,B]])
+plt.scatter(tri_coords[0,:], tri_coords[1,:])
+vert_labels = ['A','Q','B']
+for i, txt in enumerate(vert_labels):
+    #plt.annotate(txt, # this is the text
+    plt.annotate(f'{txt}\n({tri_coords[0,i]:.0f}, {tri_coords[1,i]:.0f})',
+                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
+                 textcoords="offset points", # how to position the text
+                 xytext=(20,-10), # distance from text to points (x,y)
+                 ha='center') # horizontal alignment can Ce left, right or center
+# use set_position
+ax = plt.gca()
 
-# Plotting the points A, B, P, and Q
-x_values = [A.x, P_x, Q_x, B.x]
-y_values = [A.y, P_y, Q_y, B.y]
 
-plt.plot(x_values, y_values, 'bo-')  # Plot the line
-plt.scatter(x_values, y_values, color='red')  # Scatter points
 
-# Label the points with their coordinates
-plt.text(A.x, A.y, f'A({A.x}, {A.y})', fontsize=12, ha='right')
-plt.text(B.x, B.y, f'B({B.x}, {B.y})', fontsize=12, ha='right')
-plt.text(P_x, P_y, f'P({P_x}, {P_y})', fontsize=12, ha='right')
-plt.text(Q_x, Q_y, f'Q({Q_x}, {Q_y})', fontsize=12, ha='right')
-
-# Configure the plot
 plt.xlabel('$x$')
 plt.ylabel('$y$')
-plt.title('Trisection of Line Segment AB with Labeled Points')
-plt.grid(True)
+plt.legend(loc='best')
+plt.grid() # minor
+plt.axis('equal')
+plt.title("Plot of points A,B,P")
 plt.show()
-
