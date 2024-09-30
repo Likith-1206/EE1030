@@ -5,13 +5,13 @@
 #include "libs/geofun.h"  // Include geofun.h for geometric operations
 
 // Function to calculate trisection points P and Q
-void calculate_trisection(double **A, double **B, double **P, double **Q) {
+void calculate_trisection(double **A, double **B, double **Q, double **P) {
     // Trisection formulas
-    P[0][0] = (2 * B[0][0] + A[0][0]) / 3;  // P (1:2)
-    P[1][0] = (2 * B[1][0] + A[1][0]) / 3;
+    Q[0][0] = (2 * B[0][0] + A[0][0]) / 3;  // P (1:2)
+    Q[1][0] = (2 * B[1][0] + A[1][0]) / 3;
 
-    Q[0][0] = (B[0][0] + 2 * A[0][0]) / 3;  // Q (2:1)
-    Q[1][0] = (B[1][0] + 2 * A[1][0]) / 3;
+    P[0][0] = (B[0][0] + 2 * A[0][0]) / 3;  // Q (2:1)
+    P[1][0] = (B[1][0] + 2 * A[1][0]) / 3;
 }
 
 // Function to generate points of trisection and write them to a file
@@ -23,11 +23,11 @@ void point_gen(double **A, double **B, const char *filename) {
     }
 
     // Allocate memory for trisection points
-    double **P = createMat(2, 1);
     double **Q = createMat(2, 1);
+    double **P = createMat(2, 1);
 
     // Calculate trisection points
-    calculate_trisection(A, B, P, Q);
+    calculate_trisection(A, B, Q, P);
 
     // Write the points to the file
     fprintf(file, "Point A: (%lf, %lf)\n", A[0][0], A[1][0]);
@@ -39,8 +39,8 @@ void point_gen(double **A, double **B, const char *filename) {
     fclose(file);
 
     // Free allocated memory
-    freeMat(P, 2);
     freeMat(Q, 2);
+    freeMat(P, 2);
 }
 
 int main() {
@@ -54,7 +54,7 @@ int main() {
     B[1][0] = -5;
 
     // Generate trisection points and save them to asgn2.dat
-    point_gen(A, B, "asgn2.dat");
+    point_gen(A, B, "asgn2.txt");
 
     // Free the allocated memory for A and B
     freeMat(A, 2);

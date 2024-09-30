@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Load the points from the text file
 points = []
-with open("asgn2.dat", 'r') as file:
+with open("asgn2.txt", 'r') as file:
     for line in file:
         # Check if the line contains coordinates
         if '(' in line and ')' in line:
@@ -24,14 +24,11 @@ if points.shape[0] < 4:
     raise ValueError("Data must contain at least four coordinates.")
 
 # Extract the coordinates of points P, Q, B, and A
-P = points[0]  # Trisection point P
-Q = points[1]  # Trisection point Q
-B = points[2]  # Point B
-A = points[3]  # Point A
+A = points[0]  # Trisection point Q
+B = points[1]  # Trisection point P
+P = points[2]  # Point B
+Q = points[3]  # Point A
 
-# Swap points A and P, and B and Q
-P, A = A, P
-Q, B = B, Q
 
 # Plot the points
 plt.figure()
