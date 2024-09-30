@@ -1,70 +1,64 @@
-#Code Cy GVV Sharma
-#SeptemCer 12, 2023
-#Revised July 21, 2024
-#released under GNU GPL
-#Secion Formula
-
-
-import sys                                          #for path to external scripts
-sys.path.insert(0, '/home/bheri-sai-likith-reddy/Desktop/matgeo/CoordGeo')        #path to my scripts
 import numpy as np
-import numpy.linalg as LA
 import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import ctypes
-#local imports
-from triangle.funcs import *
-from conics.funcs import circ_gen
 
-class points(ctypes.Structure):
-    _fields_ = [('A', (ctypes.c_int * 2)), ('B', (ctypes.c_int * 2)), ('P',(ctypes.c_int *2)),('Q',(ctypes.c_int *2)) ]
+# Load the points from the text file
+points = []
+with open("asgn2.dat", 'r') as file:
+    for line in file:
+        # Check if the line contains coordinates
+        if '(' in line and ')' in line:
+            # Isolate the part with the coordinates
+            coords_part = line.split('(')[-1].split(')')[0].strip()  # Get part between '(' and ')'
+            try:
+                # Split the coordinates and convert them to floats
+                x, y = map(float, coords_part.split(','))
+                points.append((x, y))  # Append as a tuple
+            except ValueError as e:
+                print(f"Error converting coordinates in line: '{line.strip()}': {e}")
 
-ptr = ctypes.CDLL('./asgn2.so')
-ptr.get.argtypes = None
-ptr.get.restype = points
+# Convert to numpy array for easier manipulation
+points = np.array(points)
 
-pts = np.ctypeslib.as_array(ptr.get()).tolist()
+# Check if points were loaded correctly
+if points.shape[0] < 4:
+    raise ValueError("Data must contain at least four coordinates.")
 
-A = np.array(([pts[0][0],pts[0][1]])).reshape(-1,1)
-B = np.array(([pts[1][0],pts[1][1]])).reshape(-1,1)
-P = np.array(([pts[2][0],pts[2][1]])).reshape(-1,1)
-Q = np.array(([pts[3][0],pts[3][1]])).reshape(-1,1)
+# Extract the coordinates of points P, Q, B, and A
+P = points[0]  # Trisection point P
+Q = points[1]  # Trisection point Q
+B = points[2]  # Point B
+A = points[3]  # Point A
 
-x_AB = line_gen(A,B)
+# Swap points A and P, and B and Q
+P, A = A, P
+Q, B = B, Q
 
-#Plotting all lines
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
+# Plot the points
+plt.figure()
 
-#LaCeling the coordinates
-tri_coords = np.block([[A,P,B]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','P','B']
-for i, txt in enumerate(vert_labels):
-    #plt.annotate(txt, # this is the text
-    plt.annotate(f'{txt}\n({tri_coords[0,i]:.0f}, {tri_coords[1,i]:.0f})',
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(20,-10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can Ce left, right or center
-tri_coords = np.block([[A,Q,B]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','Q','B']
-for i, txt in enumerate(vert_labels):
-    #plt.annotate(txt, # this is the text
-    plt.annotate(f'{txt}\n({tri_coords[0,i]:.0f}, {tri_coords[1,i]:.0f})',
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(20,-10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can Ce left, right or center
-# use set_position
-ax = plt.gca()
+# Plot thick lines between points A and B, and P and Q
+plt.plot([A[0], B[0]], [A[1], B[1]], color='gray', linewidth=2, label='Line AB')
+plt.plot([P[0], Q[0]], [P[1], Q[1]], color='gray', linewidth=2, label='Line PQ')
 
+# Plot the points A, B, P, and Q
+plt.scatter(A[0], A[1], color='red', marker='o')  # Point A
+plt.scatter(B[0], B[1], color='green', marker='o')  # Point B
+plt.scatter(P[0], P[1], color='blue', marker='o')   # Point P
+plt.scatter(Q[0], Q[1], color='purple', marker='o')  # Point Q
 
+# Label the points with coordinates
+plt.text(A[0], A[1], f"A ({A[0]:.6f}, {A[1]:.6f})", fontsize=9, verticalalignment='bottom', horizontalalignment='right')
+plt.text(B[0], B[1], f"B ({B[0]:.6f}, {B[1]:.6f})", fontsize=9, verticalalignment='bottom', horizontalalignment='right')
+plt.text(P[0], P[1], f"P ({P[0]:.6f}, {P[1]:.6f})", fontsize=9, verticalalignment='bottom', horizontalalignment='right')
+plt.text(Q[0], Q[1], f"Q ({Q[0]:.6f}, {Q[1]:.6f})", fontsize=9, verticalalignment='bottom', horizontalalignment='right')
 
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.title("Plot of points A,B,P")
+# Label the axes and add a title
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Trisection Points P and Q with Points A and B")
+plt.grid(True)
+
+# Save the resulting figure
+
 plt.show()
+
