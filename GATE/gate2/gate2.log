@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.11)  24 OCT 2024 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.11)  24 OCT 2024 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**gate1.tex
-(./gate1.tex
+**gate2.tex
+(./gate2.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
@@ -1410,18 +1410,18 @@ Package chngcntr Info: \counterwithout already defined.
 \c@matchright=\count388
 )
 \@indexfile=\write4
-\openout4 = `gate1.idx'.
+\openout4 = `gate2.idx'.
 
 
-Writing index file gate1.idx
+Writing index file gate2.idx
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 20.
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 2
 0.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
-) (./gate1.aux)
-\openout1 = `gate1.aux'.
+) (./gate2.aux)
+\openout1 = `gate2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 20.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
@@ -1594,10 +1594,10 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 20.
- (./gate1.out)
-(./gate1.out)
+ (./gate2.out)
+(./gate2.out)
 \@outlinefile=\write5
-\openout5 = `gate1.out'.
+\openout5 = `gate2.out'.
 
 \c@lstlisting=\count395
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 29
@@ -1632,38 +1632,32 @@ File: utxsyc.fd 2000/12/15 v3.1
 f-dist/fonts/enc/dvips/base/8r.enc}
 
 
-] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 194--202
-[]\OT1/txr/m/n/10 The small-est de-gree of the poly-no-mial that in-ter-po-late
-s the data
- []
-
-[3] [4] (./gate1.aux)
+] [2] [3] [4] (./gate2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-Package rerunfilecheck Info: File `gate1.out' has not changed.
-(rerunfilecheck)             Checksum: C26874FA1376A83B6CCDCBE0BB275264;88.
+Package rerunfilecheck Info: File `gate2.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 52648 strings out of 474222
- 1248022 string characters out of 5748733
- 1949975 words of memory out of 5000000
- 74033 multiletter control sequences out of 15000+600000
- 624731 words of font info for 170 fonts, out of 8000000 for 9000
+ 52635 strings out of 474222
+ 1247842 string characters out of 5748733
+ 1950975 words of memory out of 5000000
+ 74023 multiletter control sequences out of 15000+600000
+ 623677 words of font info for 168 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 109i,19n,109p,1195b,1142s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,14n,109p,1195b,1139s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gate1.pdf (4 pages, 58436 bytes).
+Output written on gate2.pdf (4 pages, 54372 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 91 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
