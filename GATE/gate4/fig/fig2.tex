@@ -1,0 +1,28 @@
+\begin{figure}[!ht]
+\centering
+\resizebox{0.8\textwidth}{!}{%  Adjusted to 80% of text width
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\small]
+\draw [->, >=Stealth] (0.75,14) -- (2.5,14);
+\draw  (4,14) ellipse (1.5cm and 0.75cm);
+\draw [->, >=Stealth] (5.5,14) -- (7,14);
+\draw  (8.25,14) ellipse (1.25cm and 0.75cm);
+\draw [->, >=Stealth] (9.5,14) -- (10.5,14);
+\draw [->, >=Stealth] (4,12.5) -- (4,13.25);
+\draw [->, >=Stealth] (8.5,12.5) -- (9.5,11.75);
+\draw [short] (4,12.5) -- (8.5,12.5);
+\draw [short] (8.5,13.25) -- (8.5,12.5);
+\node [font=\small] at (1.5,14.25) {Influent};
+\node [font=\small] at (4,14) {Aeration Tank};
+\node [font=\small] at (8.25,14.25) {Secondary};
+\node [font=\small] at (8.25,13.75) {Clarifier};
+\node [font=\small] at (10,14.5) {Effluent};
+\node [font=\small] at (6,12.75) {Sludge Recycle};
+\node [font=\small] at (9.5,11.25) {Solids Wasted};
+\end{circuitikz}
+}%
+
+
+\label{fig:my_label}
+\end{figure}
+
