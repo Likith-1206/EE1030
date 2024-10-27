@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}
+    % Influent arrow
+    \draw [->, >=Stealth] (0.75,2) -- (2.5,2) node[midway, above] {Influent};
+
+    % Aeration Tank
+    \draw (4,2) ellipse (1.5cm and 0.75cm);
+    \node at (4,2) {Aeration Tank};
+
+    % Secondary Clarifier
+    \draw [->, >=Stealth] (5.5,2) -- (7,2);
+    \draw (8.25,2) ellipse (1.25cm and 0.75cm);
+    \node at (8.25,2.25) {Secondary};
+    \node at (8.25,1.75) {Clarifier};
+
+    % Effluent arrow
+    \draw [->, >=Stealth] (9.5,2) -- (10.5,2) node[midway, above] {Effluent};
+
+    % Sludge Recycle
+    \draw [->, >=Stealth] (4,0.5) -- (4,1.25);
+    \draw (4,0.5) -- (8.5,0.5) node[midway, above] {Sludge Recycle};
+    \draw [->, >=Stealth] (8.5,0.5) -- (9.5,-0.25);
+    \draw (8.5,1.25) -- (8.5,0.5);
+
+    % Solids Wasted Label
+    \node at (9.5,-0.75) {Solids Wasted};
+\end{circuitikz}
+
+\end{document}
