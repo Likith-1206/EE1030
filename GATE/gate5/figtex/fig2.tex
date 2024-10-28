@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % Required for circuit diagrams
+
+\begin{document}
+
+\begin{circuitikz}[scale=0.8] % Adjusted scale for better fitting
+    \tikzstyle{every node}=[font=\small]
+    \draw [->, >=Stealth] (1.25,13.5) -- (1.25,17.75);  % Vertical arrow
+    \draw [->, >=Stealth] (0.5,14.5) -- (4.75,14.5);    % Horizontal arrow
+    \draw [short] (1.25,16.5) -- (2.25,16.5);           % Horizontal line
+    \draw [short] (2.25,16.5) -- (2.25,14.5);           % Vertical line
+    \draw [short] (2.25,14.5) -- (3.25,16.5);           % Diagonal line
+    \draw [short] (3.25,16.5) -- (4,16.5);              % Horizontal line
+    \node [font=\small] at (1,16.5) {1};                % Node at (1,16.5)
+    \node [font=\small] at (1,14.25) {0};               % Node at (1,14.25)
+    \node [font=\small] at (2.25,14.25) {T};            % Node at (2.25,14.25)
+    \draw [short] (3.25,14.75) -- (3.25,14.25);         % Vertical short line
+    \node [font=\small] at (3.25,14) {2T};              % Node at (3.25,14)
+    \node [font=\small] at (4.5,14.75) {t};             % Node at (4.5,14.75)
+\end{circuitikz}
+
+\end{document}

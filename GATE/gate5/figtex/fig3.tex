@@ -1,0 +1,99 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % Required for circuit diagrams
+\usepackage{graphicx}   % Required for resizing figures
+
+\begin{document}
+
+\begin{circuitikz}
+    \tikzstyle{every node}=[font=\large]
+
+    % Vertical lines
+    \draw [short] (1.25,18.25) -- (1.25,13.25);
+    \draw [short] (2,18.25) -- (2,13.25);
+    \draw [short] (2.75,18.25) -- (2.75,13.25);
+
+    % Nodes
+    \node at (1.25,17.25) [circ] {};
+    \node at (2,16.25) [circ] {};
+    \node at (3.75,17.25) [circ] {};
+    \node at (3.25,16.25) [circ] {};
+    \node at (2.75,15) [circ] {};
+    \node at (3,15) [circ] {};
+
+    % Horizontal lines with open-end
+    \draw (1.25,17.25) to[short, -o] (4.5,17.25);
+    \draw (2,16.25) to[short, -o] (4.5,16.25);
+    \draw (2.75,15) to[short, -o] (4.5,15);
+
+    % Connections and circles
+    \draw (3.75,17.25) to[short] (3.75,14.25);
+    \draw (3.25,16.25) to[short] (3.25,13.5);
+    \draw (3,15) to[short] (3,12.25);
+    \draw (3.75,14.25) to[short] (4.5,14.25);
+    \draw (3.25,13.5) to[short] (4.5,13.5);
+    \draw (3,12.25) to[short] (4.5,12.25);
+    \draw (4.75,14.25) circle (0.25cm);
+    \draw (4.75,13.5) circle (0.25cm);
+    \draw (4.75,12.25) circle (0.25cm);
+
+    % Labels
+    \node [font=\small] at (4.75,14.25) {L\_a};
+    \node [font=\small] at (4.75,13.5) {L\_b};
+    \node [font=\small] at (4.75,12.25) {L\_c};
+
+    % Horizontal connections
+    \draw (5,14.25) to[short] (5.75,14.25);
+    \draw (5,13.5) to[short] (6.25,13.5);
+    \draw (5,12.25) to[short] (7,12.25);
+    \draw (5.75,14.25) to[short] (5.75,17.25);
+    \draw (6.25,13.5) to[short] (6.25,16.25);
+    \draw (7,12.25) to[short] (7,15);
+    \draw (5.75,17.25) to[short] (5.25,17.25);
+    \draw (5.25,16.25) to[short] (7.75,16.25);
+    \draw (5.25,15) to[short] (7.5,15);
+
+    % Nodes on R', Y', B'
+    \node at (5.75,17.25) [circ] {};
+    \node at (6.25,16.25) [circ] {};
+    \node at (7,15) [circ] {};
+
+    % Additional lines and sinusoidal sources
+    \draw (5.25,17.25) to[short] (4.5,18);
+    \draw (5.25,16.25) to[short] (4.5,17);
+    \draw (5.25,15) to[short] (4.5,15.75);
+    \draw (4.75,17.75) to[short] (4.75,15.5);
+    \draw (5,17.5) to[short] (5,15.25);
+
+    % Generator part
+    \draw (7.5,15) to[short] (7.5,13.5);
+    \draw (7.5,13.5) to[short] (8,13.5);
+    \draw (8,13.5) to[short] (8.5,14);
+    \draw (8.5,14) to[short] (9,13.5);
+    \draw (9,13.5) to[short] (9.5,13.5);
+    \draw (9.5,13.5) to[short] (9.5,14.5);
+    \draw (9.5,14.5) to[sinusoidal voltage source, sources/symbol/rotate=auto] (11.25,16.25);
+    \draw (11.25,16.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (11.25,17.25);
+    \draw (11.25,16.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (13,14.5);
+
+    % Infinite bus and dashed box
+    \draw (8.25,16.25) to[short] (8.25,12.75);
+    \draw (8.25,12.75) to[short] (13,12.75);
+    \draw (13,12.75) to[short] (13,14.5);
+    \draw (9,17.25) to[short] (11.25,17.25);
+    \draw [dashed] (9.25,17.75) -- (9.25,12);
+    \draw [dashed] (9.25,17.75) -- (13.75,17.75);
+    \draw [dashed] (13.75,17.75) -- (13.75,12);
+    \draw [dashed] (9.25,12) -- (13.75,12);
+
+    % Labels for R, Y, B
+    \node [font=\large] at (1,18.75) {R};
+    \node [font=\large] at (2,18.75) {Y};
+    \node [font=\large] at (2.75,18.75) {B};
+    \node [font=\large] at (7.25,17.5) {R'};
+    \node [font=\large] at (7.25,16.5) {Y'};
+    \node [font=\large] at (7.25,15.25) {B'};
+    \node [font=\large] at (1.5,12.75) {Infinite Bus};
+    \node [font=\large] at (11,11.5) {Incoming Generator};
+\end{circuitikz}
+
+\end{document}

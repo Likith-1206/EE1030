@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % For circuit diagrams
+\usepackage{graphicx}   % For resizing the figure
+
+\begin{document}
+
+\begin{circuitikz}
+    \tikzstyle{every node}=[font=\small]
+    
+    % Horizontal line and voltage sources
+    \draw (0.75,19.25) to[short] (9.25,19.25);
+    \draw (0.75,19.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (0,19.25);
+    \draw (9.25,19.25) to[sinusoidal voltage source, sources/symbol/rotate=auto] (10,19.25);
+    
+    % Vertical lines and arrow markers
+    \draw (1.75,19.75) to[short] (1.75,18.75);
+    \draw [->, >=Stealth] (4.75,19.25) -- (4.75,18.5);
+    \draw [->, >=Stealth] (6.25,19.25) -- (6.25,18.5);
+    \draw [->, >=Stealth] (7.75,19.25) -- (7.75,18.5);
+    
+    % Distance indicators
+    \draw [<->, >=Stealth] (1.75,20.25) -- (4.75,20.25);
+    \draw [<->, >=Stealth] (5,20.25) -- (6.25,20.25);
+    \draw [<->, >=Stealth] (6.5,20.25) -- (7.75,20.25);
+    \draw [<->, >=Stealth] (8,20.25) -- (9.25,20.25);
+    
+    % Additional vertical line
+    \draw [short] (9,19.75) -- (9,18.75);
+    
+    % Voltage, frequency, and distances labels
+    \node [font=\large] at (0.25,20.25) {S\_1};
+    \node [font=\large] at (9.5,20.25) {S\_2};
+    \node [font=\large] at (0.25,18.5) {400V};
+    \node [font=\large] at (9.5,18.5) {400V};
+    \node [font=\large] at (0,18) {50Hz};
+    \node [font=\large] at (9.5,18) {50Hz};
+    \node [font=\small] at (3,19.75) {400m};
+    \node [font=\small] at (5.5,19.75) {200m};
+    \node [font=\small] at (7,19.75) {200m};
+    \node [font=\small] at (8.25,19.75) {200m};
+    
+    % Nodes and current labels
+    \node at (4.75,19.25) [circ] {};
+    \node at (6.25,19.25) [circ] {};
+    \node at (7.75,19.25) [circ] {};
+    \node [font=\small] at (4.75,18.25) {200A};
+    \node [font=\small] at (6.25,18.25) {100A};
+    \node [font=\small] at (7.75,18.25) {200A};
+    
+    % Small vertical lines at distances
+    \draw (4.75,20.5) to[short] (4.75,20);
+    \draw (6.25,20.5) to[short] (6.25,20);
+    \draw (7.75,20.5) to[short] (7.75,20);
+    
+    % Label for point P
+    \node [font=\small] at (6.25,19.5) {P};
+\end{circuitikz}
+
+\end{document}

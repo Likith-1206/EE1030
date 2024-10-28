@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % For circuit diagrams
+\usepackage{graphicx}   % For resizing the figure
+\usepackage{amsmath}    % For mathematical symbols
+
+\begin{document}
+
+\begin{circuitikz}
+    \tikzstyle{every node}=[font=\normalsize]
+    
+    % Voltage source and inductance
+    \draw (1,20.5) to[sinusoidal voltage source, sources/symbol/rotate=auto] (0.25,20.5);
+    \draw (1,20.5) to[L] (7.25,20.5);
+    
+    % Bus 1 grounding and label
+    \draw (1.5,21.25) to[short] (1.5,19.75);
+    \draw (1.5,20) to[short] (2,20);
+    \draw (2,20) to[L] (2,18);
+    \draw (2,18) to (2,17.75) node[ground]{};
+    
+    % Bus 2 and arrow to show current direction
+    \draw (7.25,21.25) to[short] (7.25,20);
+    \draw (7.25,20.25) to[short] (7.75,20.25);
+    \draw [->, >=Stealth] (7.75,20.25) -- (7.75,19);
+    
+    % Node labels
+    \node [font=\large] at (0.5,21.25) {$G_1$};
+    \node [font=\normalsize] at (1.5,22.5) {Bus 1};
+    \node [font=\normalsize] at (1.5,22) {$V_1 < 0^\circ$};
+    \node [font=\normalsize] at (2.5,19) {$j2$};
+    \node [font=\normalsize] at (4.25,20) {$j0.1$};
+    \node [font=\normalsize] at (7.25,22.75) {Bus 2};
+    \node [font=\normalsize] at (7,22) {$1<\delta_2$};
+    \node [font=\normalsize] at (8.5,20) {$1.0 + j0.5$};
+\end{circuitikz}
+
+\end{document}

@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % Required for circuit diagrams
+
+\begin{document}
+
+\begin{circuitikz}[scale=0.8] % Adjusted scale for better fitting
+    \tikzstyle{every node}=[font=\small]
+    \draw (1.75,17.75) to[short] (3.75,17.75);
+    \draw (3.75,17.75) to[short] (3.75,17.25);
+    \draw (3.75,17.25) to[european resistor] (3.75,16.25);
+    \draw (3.75,16.25) to[short] (3.75,15.75);
+    \draw (3.75,15.75) to[short] (1.75,15.75);
+    \draw (1.75,17.75) to[battery] (1.75,15.75);
+    \draw [->, >=Stealth] (1.75,18) -- (3.5,18);
+    \node [font=\LARGE] at (4.25,17) {R};
+    \node [font=\LARGE] at (2.5,18.5) {I};
+    \node [font=\small] at (1,16.75) {300V};
+\end{circuitikz}
+
+\end{document}
