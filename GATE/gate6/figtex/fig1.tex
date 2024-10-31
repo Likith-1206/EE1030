@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\normalsize]
+\draw [short] (5.5,27.5) -- (3.5,23.25);
+\draw [short] (6.5,26.5) -- (3.5,23.25);
+\draw [short] (7,24.75) -- (3.5,23.25);
+\draw [short] (7,22.5) -- (3.5,23.25);
+\draw [short] (7.25,23.5) -- (3.5,23.25);
+\draw [line width=1.8pt, short] (-1.75,23.25) -- (3.5,23.25);
+\draw [line width=1.8pt, short] (3.5,23.25) -- (7.5,20.25);
+\node [font=\normalsize] at (2.75,24) {143$^\circ$};
+\node [font=\normalsize] at (5,22.5) {20$^\circ$};
+\draw [line width=0.5pt, ->, >=Stealth] (0.25,25.5) -- (2.75,25.5)node[pos=0.5, fill=white]{$M_1$};
+\draw [line width=0.5pt, ->, >=Stealth] (6.25,22) -- (7.75,21)node[pos=0.5, fill=white]{$M_2$};
+\end{circuitikz}
+}%
+
+
+
+\end{document}
+

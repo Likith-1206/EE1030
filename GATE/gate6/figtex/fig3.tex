@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath} % Required for \text{} command within math mode
+
+\begin{document}
+
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\normalsize]
+\draw [line width=0.5pt, short] (-2.25,23) -- (2.75,23);
+\draw [line width=0.5pt, short] (2.75,23) -- (9.25,21.5);
+\draw [line width=0.5pt, short] (9.25,21.5) -- (10.25,21.5);
+\draw [line width=0.5pt, short] (-2.25,18.25) -- (3,18.25);
+\draw [line width=0.5pt, short] (3,18.25) -- (9.25,20);
+\draw [line width=0.5pt, short] (9.25,20) -- (10.25,20);
+\node [font=\normalsize] at (-1,20.5) {pipe};
+\draw [line width=0.5pt, <->, >=Stealth] (0.75,23) -- (0.75,18.25) node[pos=0.5, fill=white]{8cm};
+\draw [line width=0.5pt, short] (2.5,23.5) -- (2.5,23);
+\draw [line width=0.5pt, short] (2.5,23.5) -- (2.75,23.5);
+\draw [line width=0.5pt, short] (2.75,23.5) -- (2.75,23);
+\draw [line width=0.5pt, short] (2.75,18.25) -- (2.75,17.75);
+\draw [line width=0.5pt, short] (2.75,17.75) -- (3,17.75);
+\draw [line width=0.5pt, short] (3,17.75) -- (3,18.25);
+\node [font=\normalsize] at (2.5,24) {flange 1};
+\draw [line width=0.5pt, ->, >=Stealth] (9.5,22.25) -- (9.5,21.5);
+\draw [line width=0.5pt, ->, >=Stealth] (9.5,19.25) -- (9.5,20);
+\draw [line width=0.5pt, ->, >=Stealth] (10,20.75) -- (11,20.75);
+\node [font=\normalsize] at (10.25,21.25) {$v_2=8 \, \text{m/s}$};
+\node [font=\normalsize] at (10,19.25) {4cm};
+\end{circuitikz}
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\large]
+\draw [line width=0.5pt, ->, >=Stealth] (0.75,16) -- (0.75,23.25);
+\draw [line width=0.5pt, ->, >=Stealth] (-0.25,17) -- (7.5,17);
+\draw [line width=0.5pt, short] (-0.5,20.5) -- (5,16.25);
+\draw [line width=0.5pt, short] (-0.5,22) -- (6.75,16.25);
+\draw [line width=0.5pt, short] (0.25,19.5) -- (1.25,19.5);
+\draw [line width=0.5pt, short] (0.25,21) -- (1.25,21);
+\node [font=\large] at (0.5,23.75) {$C_m$};
+\node [font=\large] at (8.25,17) {$\alpha$(deg)};
+\node [font=\large] at (-0.75,21) {0.03};
+\node [font=\large] at (-0.5,19.5) {0.02};
+\node [font=\large] at (4.75,16) {$\delta_e=0^\circ$};
+\node [font=\large] at (6.75,15.75) {$\delta_e=-10^\circ$};
+\end{circuitikz}
+}%
+
+
+
+\end{document}
+
