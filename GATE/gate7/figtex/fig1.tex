@@ -1,0 +1,49 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\begin{document}
+
+
+\centering
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\footnotesize]
+\draw (0.75,17.25) to[short] (0.75,13.75);
+\draw (0.75,13.75) to[short] (3,13.75);
+\draw (3,13.75) to[short] (3,17.25);
+\draw (4,17.25) to[short] (4,13.75);
+\draw (4,13.75) to[short] (6.25,13.75);
+\draw (6.25,13.75) to[short] (6.25,17.25);
+\draw (7.25,17.25) to[short] (7.25,13.75);
+\draw (7.25,13.75) to[short] (9.25,13.75);
+\draw (9.25,13.75) to[short] (9.25,17.25);
+\draw  (1.5,16.25) rectangle (2.25,15.5);
+\draw [short] (0.75,15.75) -- (1.5,15.75);
+\draw [short] (2.25,15.75) -- (3,15.75);
+\draw  (4.75,16.25) rectangle (5.5,15.5);
+\draw  (8,16.25) rectangle (8.75,15.5);
+\draw [short] (4,15.75) -- (4.75,15.75);
+\draw [short] (5.5,15.75) -- (6.25,15.75);
+\draw [short] (7.25,15.75) -- (8,15.75);
+\draw [short] (8.75,15.75) -- (9.25,15.75);
+\draw [ fill={rgb,255:red,94; green,92; blue,100} ] (1.5,16.25) rectangle (2.25,15.5);
+\draw [ fill={rgb,255:red,94; green,92; blue,100} ] (4.75,16.25) rectangle (5.5,15.5);
+\draw [ fill={rgb,255:red,94; green,92; blue,100} ] (8,16.25) rectangle (8.75,15.5);
+\node [font=\small] at (1.75,16.75) {ICE CUBE};
+\draw [ fill={rgb,255:red,0; green,0; blue,0} ] (5,16) circle (0.25cm);
+\draw [ fill={rgb,255:red,154; green,153; blue,150} ] (8.25,16) circle (0.25cm);
+\node [font=\tiny] at (5,17.75) {ICE CUBE WITH SOLID STEEL BALL};
+\node [font=\tiny] at (9.75,17.75) {ICE CUBE WITH AIR BUBBLE};
+\node [font=\footnotesize] at (1.75,14.75) {WATER};
+\node [font=\footnotesize] at (5,14.75) {WATER};
+\node [font=\footnotesize] at (8.25,14.75) {WATER};
+\node [font=\footnotesize] at (1.75,13.25) {P};
+\node [font=\footnotesize] at (5,13.25) {Q};
+\node [font=\footnotesize] at (8,13.5) {R};
+\end{circuitikz}
+}%
+
+
+
+\end{document}
+
