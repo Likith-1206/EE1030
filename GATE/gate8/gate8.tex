@@ -1,0 +1,112 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[a5paper, margin=10mm]{geometry}
+%\usepackage{lmodern} % Ensure lmodern is loaded for pdflatex
+\usepackage{tfrupee} % Include tfrupee package
+
+
+\setlength{\headheight}{1cm} % Set the height of the header box
+\setlength{\headsep}{0mm}     % Set the distance between the header box and the top of the text
+
+
+%\usepackage[a5paper, top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+
+%
+\usepackage{gvv-book}
+\usepackage{gvv}
+\setlength{\intextsep}{10pt} % Space between text and floats
+
+\makeindex
+
+\begin{document}
+\bibliographystyle{IEEEtran}
+\onecolumn
+\newpage
+\title{2021-st}
+\author{AI24BTECH11004}
+\maketitle
+
+\begin{enumerate}
+       \item Let $Y$ follow $N_8\brak{0,I_8}$ distribution, where $I_8$ is the $8x8$ identity matrix. let $Y^T\sum_1 Y$ and $Y^T\sum_2 Y$ be independent and follow central chi-square distributions with $3$ and $4$ degrees of freedom, respectively, where $\sum _1$ and $\sum_2$ are $8x8$ matrices and $Y^T$ denotes transpose of $Y$. Then which of the following statements is/are true  ?\\
+       $P$ : $\sum_1$ and $\sum_2$ are idempotent.\\
+       $Q$ : $\sum_1$$\sum_2=0$, where $0$ is the $8x8$ zero matrix.       
+       \begin{enumerate}
+           \item $P$ only
+           \item $Q$ only 
+           \item Both $P$ and $Q$
+           \item Neither $P$ nor $Q$
+       \end{enumerate}
+\textbf{The next 12 questions are of numerical answer type\brak{NAT} and carry TWO mark each (no negative marks).}
+       \item Let \brak{X,Y} have a bivariate normal distribution with the joint probability density function
+            \begin{align*}
+                f_{X,Y}\brak{x,y}=\frac{1}{\pi}e^{\brak{\frac{3}{2}xy-\frac{25}{32}x^2-2y^2}},-\infty<x,y<\infty            
+            \end{align*}
+            Then 8$E\brak{XY}$ equals \rule{1cm}{0.15mm}
+       \item Let $f:RxR\rightarrow R$ be defined by $f\brak{x,y}=8x^2-2y,$ where $R$ denotes the set of all real numbers. If $M$ and $m$ denotes the maximum and minimum values of $f$, respectively, on the set $\cbrak{\brak{x,y}\in RxR:x^2 +y^2=1}$, then $M-m$ equals \rule{1cm}{0.15mm} \brak{\text{round off to $2$ decimal places}}.
+	\item Let $A=\myvec{a &u_1&u_2&u_3}$, $B=\myvec{b &u_1&u_2&u_3}$ and $=\myvec{u_2&u_3&u_1&a+b}$ be three $4x4$ real matrices, where $a,b,u_1,u_2 \text{and } u_3$ are$4x1$ real column vectors. Let det$\brak{A}$,det$\brak{B}$ and det$\brak{C}$ denote the determinants of the matrices $A,B \text1{and }C$, respectively. If det$\brak{A}=6$ and det$\brak{B}=2$, then det$\brak{A+B}$-det$\brak{C}$ equals \rule{1cm}{0.15mm}  
+       \item Let $X$ be a random variable having the moment generating function 
+            \begin{align*}
+                M\brak{t}=\frac{e^t-1}{t\brak{1-t}},t<1
+            \end{align*}
+            Then $P\brak{X>1}$ equals \rule{1cm}{0.15mm} \brak{\text{round off to $2$ decimal places}.}
+	\item  Let $\cbrak{X_n}_n\geq1$ be a sequence of independent and identically distributed random variables each having uniform distribution on $\sbrak{0,3}$. Let $Y$ be a random variable, independent of $\cbrak{X_n}_n\geq1$, having probability mass function 
+          \begin{align*}
+              P\brak{Y=k}=\begin{cases}
+                  \frac{1}{\brak{e-1}k!},   k=1,2,....,\\
+                  0, \text{otherwise}
+              \end{cases}
+          \end{align*}
+	\item Let $\cbrak{X_n}_n\geq1$ be a sequence of independent and identically distributed random variables each having probability density function 
+         \begin{align*}
+             f\brak{x}=\begin{cases}
+                 e^{-x},x>0\\
+                 0,otherwise.
+             \end{cases}
+         \end{align*}
+        Let $X_{\brak{n}} = \max \cbrak{X_1, X_2, \ldots, X_n}$ for $n \geq 1$. If $Z$ is the random variable to which $\cbrak{X_{\brak{n}} - \log_e n}_{n \geq 1}$ converges in distribution, as $n \rightarrow \infty$, then the median of $Z$ equals \rule{1cm}{0.15mm} \brak{\text{round off to $2$ decimal places}.}
+
+	\item Consider an amusement park where visitors are arriving according to  Poisson process with rate $1$. Upon arrival, a visitor spends a random amount of time in the park and then departs. The time spent by the visitors are independent of one another, as well as f the arrival process, and have common probability density function 
+       \begin{align*}
+         f\brak{x}=\begin{cases}
+                 e^{-x},x>0\\
+                 0,otherwise.
+             \end{cases}
+             \end{align*}
+        If at a given time point, there are $10$ visitors in the park and $p$ is the probability that there will be exactly two more arrivals before the next departure, $\frac{1}{p}$ equals \rule{1cm}{0.15mm}
+	\item let $\cbrak{0.90,0.50,0.01,0.95}$ be a realization of a random sample of size $4$ from the probability density function
+        \begin{align*}
+            f\brak{x}=\begin{cases}
+                \frac{\theta }{1-\theta}x^{\brak{2\theta-1}/\brak{1-\theta}},0<x<1,\\
+                0, otherwise,
+            \end{cases}
+        \end{align*}
+        where $0.5\leq \theta <1$. Then the maximum likelihood estimate of $\theta$ based on the observed sample equals \rule{1cm}{0.15mm} \brak{\textbf{round off to $2$ decimal places}.}
+         
+	\item Let a random sample of size $100$ from a normal population with unknown mean $\mu$ and variance $9$ give the sample mean $5.608$. Let $\Phi\brak{.}$ denote the distribution function of the standard normal random variable. If $\Phi\brak{1.96}=0.975,\Phi\brak{1.64}=0.95$ and the uniformly most powerful unbiased test based on sample mean is used to test $H_0:\mu =5.02$ against $H_1:\mu \neq 5.02$, then the $p$-value equals \rule{1cm}{0.15mm} \brak{\text{round off to $3$ decimal places}}.
+    \item Let $X$ be a discrete random variable with probability mass function $p\in \cbrak{p_0,p_1},$ where
+    \begin{align*}
+       \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x$ & 7 & 8 & 9 & 10  \\
+    \hline
+    $p_1\brak{x}$ & 0.69 & 0.10 & 0.16 & 0.05 \\
+    \hline
+    $p_0\brak{x}$ & 0.90 & 0.05 & 0.04 & 0.01 \\
+    \hline
+\end{tabular}
+\end{align*}
+         To test $H_0:p=p_0$ against $H_1:p=p_1$, th power of the most powerful test of size $0.05$, based on $X$, equals \rule{1cm}{0.15mm} \brak{\text{round off to $2 $ decimal places}}.
+    \item Let $X_1,X_2,\ldots,X_{10}$ be a random sample from a probability density function 
+    \begin{align*}
+        f_\theta \brak{x} =f\brak{x-\theta}, -\infty<x<\infty,
+    \end{align*}
+    where $-\infty<\theta<\infty$ and $f\brak{-x}=f\brak{x}$ for $-\infty <x<\infty$. For testing $H_0:\theta=1.2$ against $H_1:\theta \neq1.2$, let $T^+$ denote the Wilcoxson Signed-rank est statistic. If $\eta$ denotes the probability of the event $\cbrak{T^+<50}$ under $H_0$, then $32\eta$ equals \rule{1cm}{0.15mm} \brak{\text{round off to $2$ decimal places}}.
+    \item Consider the multiple linear regression model
+         \begin{align*}
+             Y_i=\beta_0+\beta_1x_{1,i}+\beta_2x_{2,i}+\ldots \beta_{22}x_{22,i}+\epsilon_i, i=1,2,\ldots,123,
+         \end{align*}
+         where, for $j=0,1,2,\ldots,22$, $\beta_j's$ are unknown parameters and $\epsilon_i's$ are independent and identically distributed $N\brak{0,\sigma^2},\sigma>0$, random variables.\\
+         If the sum of squares due to regression is $338.92$, the total sum of squares is $522.30$ and $R_{adj}^2$ denotes the value of adjusted $R^2$, then $100R^2{adj}$ equals \rule{1cm}{0.15mm} \brak{\text{round off to $2$ decimal places}}.
+	
+\end{enumerate}	
+\end{document}
+
