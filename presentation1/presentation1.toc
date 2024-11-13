@@ -1,0 +1,8 @@
+\beamer@sectionintoc {2}{Problem}{3}{0}{1}
+\beamer@sectionintoc {3}{Solution}{4}{0}{2}
+\beamer@subsectionintoc {3}{1}{section formula in matrix form}{4}{0}{2}
+\beamer@subsectionintoc {3}{2}{solving for k}{5}{0}{2}
+\beamer@subsectionintoc {3}{3}{solving for $y$}{6}{0}{2}
+\beamer@sectionintoc {4}{codes}{8}{0}{3}
+\beamer@subsectionintoc {4}{1}{C code to calculate points}{8}{0}{3}
+\beamer@subsectionintoc {4}{2}{Plotting the figure using Python}{12}{0}{3}

@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{} Load the points from the text file}
+\PYG{n}{points} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}asgn2.txt\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{file}\PYG{p}{:}
+    \PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n}{file}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} Check if the line contains coordinates}
+        \PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}(\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{line} \PYG{o+ow}{and} \PYG{l+s+s1}{\PYGZsq{})\PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{line}\PYG{p}{:}
+            \PYG{c+c1}{\PYGZsh{} Isolate the part with the coordinates}
+            \PYG{n}{coords\PYGZus{}part} \PYG{o}{=} \PYG{n}{line}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}(\PYGZsq{}}\PYG{p}{)[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{})\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}  \PYG{c+c1}{\PYGZsh{} Get part between \PYGZsq{}(\PYGZsq{} and \PYGZsq{})\PYGZsq{}}
+            \PYG{k}{try}\PYG{p}{:}
+                \PYG{c+c1}{\PYGZsh{} Split the coordinates and convert them to floats}
+                \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n}{coords\PYGZus{}part}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{},\PYGZsq{}}\PYG{p}{))}
+                \PYG{n}{points}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{))}  \PYG{c+c1}{\PYGZsh{} Append as a tuple}
+            \PYG{k}{except} \PYG{n+ne}{ValueError} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Error converting coordinates in line: \PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{line}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZsq{}: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{e}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Convert to numpy array for easier manipulation}
+\PYG{n}{points} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{points}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Check if points were loaded correctly}
+\PYG{k}{if} \PYG{n}{points}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{:}
+    \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Data must contain at least four coordinates.\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Extract the coordinates of points P, Q, B, and A}
+\PYG{n}{A} \PYG{o}{=} \PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Trisection point Q}
+\PYG{n}{B} \PYG{o}{=} \PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Trisection point P}
+\PYG{n}{P} \PYG{o}{=} \PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Point B}
+\PYG{n}{Q} \PYG{o}{=} \PYG{n}{points}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} Point A}
+
+
+\PYG{c+c1}{\PYGZsh{} Plot the points}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+
+\PYG{c+c1}{\PYGZsh{} Plot thick lines between points A and B, and P and Q}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]],} \PYG{p}{[}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}gray\PYGZsq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Line AB\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]],} \PYG{p}{[}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}gray\PYGZsq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Line PQ\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Plot the points A, B, P, and Q}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Point A}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}green\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Point B}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Point P}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}\PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}purple\PYGZsq{}}\PYG{p}{,} \PYG{n}{marker}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Point Q}
+
+\PYG{c+c1}{\PYGZsh{} Label the points with coordinates}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{text}\PYG{p}{(}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}A (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{A}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{)\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{n}{verticalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}bottom\PYGZsq{}}\PYG{p}{,} \PYG{n}{horizontalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}right\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{text}\PYG{p}{(}\PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}B (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{B}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{)\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{n}{verticalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}bottom\PYGZsq{}}\PYG{p}{,} \PYG{n}{horizontalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}right\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{text}\PYG{p}{(}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}P (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{P}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{)\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{n}{verticalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}bottom\PYGZsq{}}\PYG{p}{,} \PYG{n}{horizontalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}right\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{text}\PYG{p}{(}\PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Q (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{Q}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{)\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{9}\PYG{p}{,} \PYG{n}{verticalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}bottom\PYGZsq{}}\PYG{p}{,} \PYG{n}{horizontalalignment}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}right\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Label the axes and add a title}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Trisection Points P and Q with Points A and B\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Save the resulting figure}
+
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+	
+\end{Verbatim}
