@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % Required for circuit diagrams
+\usepackage{tikz}       % Required for TikZ drawings
+
+\begin{document}
+
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\small]
+\draw [short] (1.75,18) -- (4,13.5);
+\draw [short] (4,13.5) -- (6.25,18);
+\draw [short] (1.75,18) -- (4,16);
+\draw [short] (4,16) -- (6.25,18);
+\node at (2.5,17) [circ] {};
+\node at (5.5,17) [circ] {};
+\node at (4,15) [circ] {};
+\node at (4,14.25) [circ] {};
+\node [font=\small] at (5.25,16.75) {R};
+\node [font=\small] at (2.75,16.75) {P};
+\node [font=\small] at (4,15.5) {Q};
+\node [font=\small] at (4,14.5) {S};
+\end{circuitikz}
+}%
+
+\end{document}
+

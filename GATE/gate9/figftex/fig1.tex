@@ -1,0 +1,58 @@
+\documentclass{standalone}
+\usepackage{circuitikz} % Required for drawing circuits
+\usepackage{tikz}       % Required for TikZ drawings
+
+\begin{document}
+
+\resizebox{1\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\small]
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (1.75,18.25) rectangle (3,17);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (3,18.25) rectangle (4.25,17);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (4.25,18.25) rectangle (5.5,17);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (5.5,18.25) rectangle (6.75,17);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (1.75,17) rectangle (3,15.75);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (3,15.75) rectangle (2.75,15.75);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (1.75,15.75) rectangle (3,14.5);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (1.75,14.5) rectangle (3,13.25);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (3,15.75) rectangle (4.25,14.5);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (3,14.5) rectangle (4.25,13.25);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (4.25,15.75) rectangle (5.5,14.5);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (4.25,14.5) rectangle (5.5,13.25);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (4.25,17) rectangle (5.5,15.75);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (5.5,17) rectangle (6.75,15.75);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (5.5,15.75) rectangle (6.75,14.5);
+\draw [ fill={rgb,255:red,192; green,191; blue,188} ] (5.5,14.5) rectangle (6.75,13.25);
+\node at (1.75,18.25) [circ] {};
+\node at (3,18.25) [circ] {};
+\node at (4.25,18.25) [circ] {};
+\node at (5.5,18.25) [circ] {};
+\node at (6.75,18.25) [circ] {};
+\node at (6.75,17) [circ] {};
+\node at (5.5,17) [circ] {};
+\node at (4.25,17) [circ] {};
+\node at (3,17) [circ] {};
+\node at (1.75,17) [circ] {};
+\node at (1.75,15.75) [circ] {};
+\node at (3,15.75) [circ] {};
+\node at (4.25,15.75) [circ] {};
+\node at (5.5,15.75) [circ] {};
+\node at (6.75,15.75) [circ] {};
+\node at (6.75,14.5) [circ] {};
+\node at (5.5,14.5) [circ] {};
+\node at (4.25,14.5) [circ] {};
+\node at (3,14.5) [circ] {};
+\node at (1.75,14.5) [circ] {};
+\node at (1.75,13.25) [circ] {};
+\node at (3,13.25) [circ] {};
+\node at (4.25,13.25) [circ] {};
+\node at (5.5,13.25) [circ] {};
+\node at (6.75,13.25) [circ] {};
+\node [font=\small] at (8,13.75) {1 unit};
+\draw [<->, >=Stealth] (5.5,12.75) -- (6.75,12.75);
+\node [font=\small] at (6.25,12.25) {1 unit};
+\draw [<->, >=Stealth] (7.25,14.5) -- (7.25,13.25);
+\end{circuitikz}
+}%
+
+\end{document}
